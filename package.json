@@ -1,7 +1,7 @@
 {
   "name": "react-native-grayscale",
   "title": "React Native Grayscale",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "converts a base64 image to a base64 grayscale image",
   "main": "index.js",
   "scripts": {

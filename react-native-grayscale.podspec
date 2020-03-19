@@ -4,8 +4,8 @@ package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
 Pod::Spec.new do |s|
   s.name         = "react-native-grayscale"
-  s.version      = package["1.0.1"]
-  s.summary      = package["converts base64 image to grayscale base64 image"]
+  s.version      = package["version"]
+  s.summary      = package["description"]
   s.description  = <<-DESC
                   react-native-grayscale
                    DESC
