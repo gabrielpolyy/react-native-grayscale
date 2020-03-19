@@ -1,0 +1,33 @@
+{
+  "name": "react-native-grayscale",
+  "title": "React Native Grayscale",
+  "version": "1.0.0",
+  "description": "TODO",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielpoliciuc/react-native-grayscale.git",
+    "baseUrl": "https://github.com/gabrielpoliciuc/react-native-grayscale"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": {
+    "name": "Gabriel Policiuc",
+    "email": "gabriel.policiuc@email.com"
+  },
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
+  "readmeFilename": "README.md",
+  "peerDependencies": {
+    "react": "^16.8.1",
+    "react-native": ">=0.60.0-rc.0 <1.0.x"
+  },
+  "devDependencies": {
+    "react": "^16.9.0",
+    "react-native": "^0.61.5"
+  }
+}
