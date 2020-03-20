@@ -5,6 +5,7 @@ passed as a base64 string to a base64 string that represents
 the grayscale version of that image.
 
 :exclamation: Available for iOS only.
+
 :exclamation: Tested on react-native>=0.60 only.
 
 Support for android coming soon.
@@ -20,6 +21,7 @@ or
 then,
 
 `cd ios`
+
 `pod install`
 
 done.
@@ -27,16 +29,18 @@ done.
 ## Specs
 
 `...`
+
 `import Grayscale from "react-native-grayscale"`
+
 `...`
 
 Grayscale.toGrayscale(param1, param2, param3)
 
-| Parameters | Type     | Description                                                                                                                                                  |
-| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| param1     | string   | the base64 string of the image. The prefix `data:image/[format];base64,` is optional.                                                                        |
-| param2     | boolean  | `true` if you want the base64 returned with the prefix `data:image/png;base64,`, `false` otherwise                                                           |
-| param3     | Function | a callback for receiving the processed base64 image. See Example section for usage. The processed base64 image is an empty string if we couldn't process it. |
+| Parameters | Type     | Description                                                                                                                                                                                |
+| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| param1     | string   | the base64 string of the image. The prefix `data:image/[format];base64,` is optional.                                                                                                      |
+| param2     | boolean  | `true` if you want the base64 returned with the prefix `data:image/png;base64,`, `false` otherwise. Note that without a prefix `data: ...base64,` setting the uri property of the source prop at Image result in the image NOT beeing displayed |
+| param3     | Function | a callback for receiving the processed base64 image. See Example section for usage. The processed base64 image is an empty string if we couldn't process it.                               |
 
 ## Example
 
@@ -55,7 +59,8 @@ const Test = props => {
       if (result !== "") {
         setGrayscaleBase64Img(result);
       } else {
-        // The 'result' will be empty if we couldn't process the base64 string provided as input, most likely because it is not a valid base64 image.
+        // The 'result' will be empty if we couldn't process the base64 string provided as input,
+        //most likely because it is not a valid base64 image.
       }
     });
   }, []);
