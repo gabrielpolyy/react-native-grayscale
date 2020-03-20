@@ -20,9 +20,9 @@ or
 
 then,
 
-`cd ios`
+`$ cd ios`
 
-`pod install`
+`$ pod install`
 
 done.
 
@@ -36,11 +36,11 @@ done.
 
 Grayscale.toGrayscale(param1, param2, param3)
 
-| Parameters | Type     | Description                                                                                                                                                                                |
-| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| param1     | string   | the base64 string of the image. The prefix `data:image/[format];base64,` is optional.                                                                                                      |
-| param2     | boolean  | `true` if you want the base64 returned with the prefix `data:image/png;base64,`, `false` otherwise. Note that without a prefix `data: ...base64,` setting the uri property of the source prop at Image result in the image NOT beeing displayed |
-| param3     | Function | a callback for receiving the processed base64 image. See Example section for usage. The processed base64 image is an empty string if we couldn't process it.                               |
+| Parameters | Type     | Description                                                                                                                                                                                                                                                 |
+| ---------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| param1     | string   | the base64 string of the image. The prefix `data:image/[format];base64,` is optional.                                                                                                                                                                       |
+| param2     | boolean  | `true` if you want the base64 returned with the prefix `data:image/png;base64,`, `false` otherwise. Note that without a prefix `data:image/[format];base64,` setting the uri property of the source prop at Image result in the image NOT beeing displayed. |
+| param3     | Function | A callback for receiving the grayscale version of the base64 image. See Example section for usage. The received base64 can also be an empty string if we couldn't process it. If so please check if the input image is in a valid format.                   |
 
 ## Example
 
