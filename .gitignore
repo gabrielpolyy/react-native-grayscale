@@ -47,3 +47,4 @@ Podfile.lock
 
 example
 yarn.lock
+scripts/
