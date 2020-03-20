@@ -18,7 +18,7 @@ or
 
 `$ npm install react-native-grayscale --save`
 
-then,
+**then,**
 
 `$ cd ios`
 
@@ -39,7 +39,7 @@ Grayscale.toGrayscale(param1, param2, param3)
 | Parameters | Type     | Description                                                                                                                                                                                                                                                 |
 | ---------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | param1     | string   | the base64 string of the image. The prefix `data:image/[format];base64,` is optional.                                                                                                                                                                       |
-| param2     | boolean  | `true` if you want the base64 returned with the prefix `data:image/png;base64,`, `false` otherwise. Note that without a prefix `data:image/[format];base64,` setting the uri property of the source prop at Image result in the image NOT beeing displayed. |
+| param2     | boolean  | `true` if you want the base64 returned with the prefix `data:image/png;base64,`, `false` otherwise. Note that without a prefix `data:image/[format];base64,` setting the uri property of the source prop at Image results in the image NOT beeing displayed. |
 | param3     | Function | A callback for receiving the grayscale version of the base64 image. See Example section for usage. The received base64 can also be an empty string if we couldn't process it. If so please check if the input image is in a valid format.                   |
 
 ## Example

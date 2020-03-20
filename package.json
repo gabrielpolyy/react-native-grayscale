@@ -2,7 +2,7 @@
   "name": "react-native-grayscale",
   "title": "React Native Grayscale",
   "version": "1.0.3",
-  "description": "Converts an image in base64 format to a grayscale image in base64 format.",
+  "description": "Converts an image in base64 format to it's grayscale version in base64 format.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
