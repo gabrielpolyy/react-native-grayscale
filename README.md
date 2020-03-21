@@ -30,23 +30,26 @@ done.
 
 `...`
 
-`import Grayscale from "react-native-grayscale"`
+`import getBase64Grayscale from "react-native-grayscale"`
 
 `...`
 
-Grayscale.toGrayscale(param1, param2, param3)
+`getBase64Grayscale(base64, returnWithBase64Prefix = false)`
 
-| Parameters | Type     | Description                                                                                                                                                                                                                                                 |
-| ---------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| param1     | string   | the base64 string of the image. The prefix `data:image/[format];base64,` is optional.                                                                                                                                                                       |
-| param2     | boolean  | `true` if you want the base64 returned with the prefix `data:image/png;base64,`, `false` otherwise. Note that without a prefix `data:image/[format];base64,` setting the uri property of the source prop at Image results in the image NOT beeing displayed. |
-| param3     | Function | A callback for receiving the grayscale version of the base64 image. See Example section for usage. The received base64 can also be an empty string if we couldn't process it. If so please check if the input image is in a valid format.                   |
+| Parameters             | Required                    | Type    | Description                                                                                                                                                                                                                                                  |
+| ---------------------- | --------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| base64                 | required                    | string  | the base64 string of the image. The prefix `data:image/[format];base64,` is optional.                                                                                                                                                                        |
+| returnWithBase64Prefix | optional (default is false) | boolean | `true` if you want the base64 returned with the prefix `data:image/png;base64,`, `false` otherwise. Note that without a prefix `data:image/[format];base64,` setting the uri property of the source prop at Image results in the image NOT beeing displayed. |
+
+| Returns | Description |
+| Promise<string> | Returns a promise that will resolve with the base64 string of the grayscale version
+of the image or will be rejected with an error if the input base64 image is in incorrect format
 
 ## Example
 
 ```javascript
 import React, { useEffect, useState } from "react";
-import Grayscale from "react-native-grayscale";
+import getBase64Grayscale from "react-native-grayscale";
 import { Image, View } from "react-native";
 
 const Test = props => {
@@ -55,14 +58,7 @@ const Test = props => {
 
   const [grayscaleBase64Img, setGrayscaleBase64Img] = useState("");
   useEffect(() => {
-    Grayscale.toGrayscale(base64Icon, true, result => {
-      if (result !== "") {
-        setGrayscaleBase64Img(result);
-      } else {
-        // The 'result' will be empty if we couldn't process the base64 string provided as input,
-        //most likely because it is not a valid base64 image.
-      }
-    });
+    getBase64Grayscale(base64Icon, true).then((result) => setGrayscaleBase64Img(result); );
   }, []);
 
   return (
