@@ -5,7 +5,7 @@
 
 RCT_EXPORT_MODULE()
 
-RCT_EXPORT_METHOD(toGrayscale:(NSString *)base64 addDataImagePrefix:(BOOL)addDataImagePrefix callback:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(toGrayscale:(NSString *)base64 callback:(RCTResponseSenderBlock)callback)
 {
     @try {
         if ([base64 hasPrefix:@"data:image/"] == NO) {
@@ -16,12 +16,7 @@ RCT_EXPORT_METHOD(toGrayscale:(NSString *)base64 addDataImagePrefix:(BOOL)addDat
         UIImage *originalImage = [UIImage imageWithData:originalImageData];
         UIImage* grayscaleImage = [self convertImageToGrayscale: originalImage];
         NSString* base64Grayscale = [UIImagePNGRepresentation(grayscaleImage) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-        if (addDataImagePrefix == NO) {
-            callback(@[base64Grayscale]);
-        }
-        else {
-            callback(@[[@"data:image/png;base64," stringByAppendingString:base64Grayscale]]);
-        }
+        callback(@[base64Grayscale]);
     }
     @catch(NSException* exception) {
         callback(@[@""]);

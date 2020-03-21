@@ -34,16 +34,18 @@ done.
 
 `...`
 
-`getBase64Grayscale(base64, returnWithBase64Prefix = false)`
+`getBase64Grayscale(base64)`
 
-| Parameters             | Required                    | Type    | Description                                                                                                                                                                                                                                                  |
-| ---------------------- | --------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| base64                 | required                    | string  | the base64 string of the image. The prefix `data:image/[format];base64,` is optional.                                                                                                                                                                        |
-| returnWithBase64Prefix | optional (default is false) | boolean | `true` if you want the base64 returned with the prefix `data:image/png;base64,`, `false` otherwise. Note that without a prefix `data:image/[format];base64,` setting the uri property of the source prop at Image results in the image NOT beeing displayed. |
+| Parameters | Required | Type   | Description                                                                           |
+| ---------- | -------- | ------ | ------------------------------------------------------------------------------------- |
+| base64     | required | string | the base64 string of the image. The prefix `data:image/[format];base64,` is optional. |
 
-| Returns         | Description                                                                                                                                                                         |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Promise<string> | Returns a promise that will resolve with the base64 string of the grayscale version of the image or will be rejected with an error if the input base64 image is in incorrect format |
+:exclamation: Note that if the base64 is without a prefix `data:image/[format];base64,` setting the uri property of the source prop at Image
+will result in the image NOT beeing displayed.
+
+| Returns           | Description                                                                                                                                                                         |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Promise<<string>> | Returns a promise that will resolve with the base64 string of the grayscale version of the image or will be rejected with an error if the input base64 image is in incorrect format |
 
 ## Example
 
@@ -60,9 +62,9 @@ const Test = props => {
 
   useEffect(() => {
     const toGrayscale = async () => {
-      const grayscale = await getBase64Grayscale(base64Icon, true);
+      const grayscale = await getBase64Grayscale(base64Icon);
       setGrayscaleBase64Img(grayscale);
-    }
+    };
     toGrayscale();
   }, []);
 
@@ -84,7 +86,7 @@ const Test = props => {
           borderWidth: 1,
           borderColor: "black"
         }}
-        source={{ uri: grayscaleBase64Img }}
+        source={{ uri: `data:image/png;base64,${grayscaleBase64Img}` }}
       />
     </View>
   );
