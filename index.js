@@ -9,11 +9,11 @@ const { Grayscale } = NativeModules;
  * base64 grayscale image. Default is false.
  * @returns {Promise<string>} A promise with the grayscale image version in base64 format.
  */
-export default function getBase64Grayscale(base64, returnWithBase64Prefix = false) {
-  return Promise((resolve, reject) => {
-    Grayscale.toGrayscale(base64, returnWithBase64Prefix, base64grayscale => {
-      if (base64grayscale !== "") {
-        resolve(base64grayscale);
+export default function getBase64Grayscale(base64, addDataImagePrefix = false) {
+  return new Promise((resolve, reject) => {
+    Grayscale.toGrayscale(base64, addDataImagePrefix, base64Grayscale => {
+      if (base64Grayscale !== "") {
+        resolve(base64Grayscale);
       } else {
         reject(
           new Error(
