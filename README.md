@@ -40,12 +40,9 @@ done.
 | ---------- | -------- | ------ | ------------------------------------------------------------------------------------- |
 | base64     | required | string | the base64 string of the image. The prefix `data:image/[format];base64,` is optional. |
 
-:exclamation: Note that if the base64 is without a prefix `data:image/[format];base64,` setting the uri property of the source prop at Image
-will result in the image NOT beeing displayed.
-
 | Returns           | Description                                                                                                                                                                         |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Promise<<string>> | Returns a promise that will resolve with the base64 string of the grayscale version of the image or will be rejected with an error if the input base64 image is in incorrect format |
+| Promise | Returns a promise that will resolve with the base64 `string` of the grayscale version of the image or will be rejected with an error if the input base64 image is in incorrect format |
 
 ## Example
 
@@ -92,3 +89,6 @@ const Test = props => {
   );
 };
 ```
+
+:exclamation: Note that if the base64 is without a prefix `data:image/[format];base64,` setting the uri property of the source prop at Image
+will result in the image NOT beeing displayed.
