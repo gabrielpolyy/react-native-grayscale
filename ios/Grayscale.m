@@ -52,7 +52,10 @@ RCT_EXPORT_METHOD(toGrayscale:(NSString *)base64 addDataImagePrefix:(BOOL)addDat
     // Release colorspace, context and bitmap information
     CGColorSpaceRelease(colorSpace);
     CGContextRelease(context);
-    CFRelease(imageRef);
+    
+    if (imageRef) {
+        CFRelease(imageRef);
+    }
     
     // Return the new grayscale image
     return newImage;
