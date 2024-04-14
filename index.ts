@@ -2,18 +2,17 @@ import { NativeModules } from "react-native";
 
 const { Grayscale } = NativeModules;
 
-/**
- *
- * @param {string} base64 The input image
- * @param {boolean} returnWithBase64Prefix true if we want to append data:image/png;base64 to the returned
- * base64 grayscale image. Default is false.
- * @returns {Promise<string>} A promise with the grayscale image version in base64 format.
- */
-export default function getBase64Grayscale(base64) {
+export default function getBase64Grayscale(
+  base64: string,
+  returnWithBase64Prefix?: boolean
+): Promise<string> {
   return new Promise((resolve, reject) => {
-    Grayscale.toGrayscale(base64, base64Grayscale => {
+    Grayscale.toGrayscale(base64, (base64Grayscale: string) => {
       if (base64Grayscale !== "") {
         // base64 is returned with line breaks that can cause issues in more modern tech.
+        if (returnWithBase64Prefix) {
+          base64Grayscale = `data:image/png;base64,${base64Grayscale}`;
+        }
         resolve(base64Grayscale.replace(/(\r\n|\n|\r)/gm, ""));
       } else {
         reject(
