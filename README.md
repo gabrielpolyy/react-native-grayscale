@@ -4,11 +4,11 @@ A super lightweight react native package that converts an image
 passed as a base64 string to a base64 string that represents
 the grayscale version of that image.
 
-:exclamation: Available for iOS only.
 
-:exclamation: Tested on react-native>=0.60 only.
-
-Support for android coming soon.
+This library is compatible with the following platforms:
+- **Android**: ✅ Supported
+- **iOS**: ✅ Supported (Version 17.4)
+- **React Native**: ✅ Supported (Version 0.71.4)
 
 ## Installation
 
